@@ -4,7 +4,7 @@ param adminUsername string = 'azureuser'
 param sshPublicKey string
 
 resource vnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
-  name: 'vnet1'
+  name: 'vnet'
   location: location
   properties: {
     addressSpace: {
