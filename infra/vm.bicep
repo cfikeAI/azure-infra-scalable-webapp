@@ -147,6 +147,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-07-01' = {
           ]
         }
       }
+      customData: base64(loadTextContent('scripts/startup.sh')) // Optional: Use cloud-init for initial setup
     } 
     networkProfile: {
       networkInterfaces: [
