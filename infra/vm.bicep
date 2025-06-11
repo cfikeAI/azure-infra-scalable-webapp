@@ -68,7 +68,7 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2021-02-01' = {
   properties: {
     publicIPAllocationMethod: 'Dynamic'
     dnsSettings: {
-      domainNameLabel: 'demo-vm-cfikeai'
+      domainNameLabel: 'cfikeai-web'
     }
   }
   tags: {
@@ -95,6 +95,32 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
           sourcePortRange: '*'
           destinationAddressPrefix: '*'
           destinationPortRange: '22'
+        }
+      }
+      {
+        name: 'allow-HTTP'
+        properties: {
+          priority: 2000
+          protocol: 'Tcp'
+          access: 'Allow'
+          direction: 'Inbound'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          destinationPortRange: '80'
+        }
+      }
+      {
+        name: 'allow-HTTPS'
+        properties: {
+          priority: 3000
+          protocol: 'Tcp'
+          access: 'Allow'
+          direction: 'Inbound'
+          sourceAddressPrefix: '*'
+          sourcePortRange: '*'
+          destinationAddressPrefix: '*'
+          destinationPortRange: '443'
         }
       }
     ]
