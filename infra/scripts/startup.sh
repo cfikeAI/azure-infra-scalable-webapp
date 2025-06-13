@@ -11,7 +11,7 @@ echo '/dev/sdc1 /mnt/data ext4 defaults,nofail 0 2' >> /etc/fstab
 
 # Clone GitHub repo into /mnt/data
 apt install git -y
-git clone https://github.com/cfikeAI/portfolio_website.git /mnt/data/site
+git clone https://github.com/cfikeAI/crt-portfolio /mnt/data/site
 
 # Replace default nginx site with HTML
 rm -rf /var/www/html/*
